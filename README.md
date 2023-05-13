@@ -64,10 +64,16 @@ developing your own process.
 
   - How I debugged:
 
+  By reviewing the logs and utilizing development tools, I identified an "uninitialized constant Toys" error. This led me to the toys_controller, where I noticed I was creating a new toy using the Toys model rather than the correct Toy model. Removing the "s" from Toys resolved the issue.
+  
 - Update the number of likes for a toy
 
   - How I debugged:
 
+  When I modified the number of likes, I encountered a caught (in promise) SyntaxError: Unexpected end of JSON input error. This suggested that the frontend expected a JSON response, but the backend wasn't providing one.
+  I resolved the by adding a JSON response to the backend.
+
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+  I encountered a 500 Server Error, and after examining the routes, I discovered that the destroy route was missing. Including the route resolved the problem.
